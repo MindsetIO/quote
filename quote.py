@@ -19,10 +19,10 @@ def get_quote():
         "timestamp": f"{dt.utcnow().isoformat(timespec='seconds')}Z",
     }
     tmpl = Template(Path("template.html").read_text())
-    qdct["html"] = tmpl.substitute(qdct)
+    qdct["my-html"] = tmpl.substitute(qdct)
     return qdct
 
 
 if __name__ == "__main__":  # Local testing
     with open("/tmp/quote.html", "w") as f:
-        f.write(get_quote()["html"])
+        f.write(get_quote()["my-html"])
